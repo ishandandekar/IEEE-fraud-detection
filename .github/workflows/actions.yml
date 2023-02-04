@@ -30,6 +30,3 @@ jobs:
 
       - name: format code
         run: make format
-
-      - name: download data
-        run: make data
