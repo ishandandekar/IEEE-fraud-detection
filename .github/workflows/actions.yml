@@ -22,7 +22,7 @@ jobs:
 
       - name: verify kaggle login
         run: |
-        kaggle --version
+          kaggle --version
 
       - name: download data
         run: python src/data/get_data.py
