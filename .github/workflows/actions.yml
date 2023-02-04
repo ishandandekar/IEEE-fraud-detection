@@ -14,13 +14,15 @@ jobs:
         with:
           python-version: "3.9"
 
-      - name: install kaggle
+      - name: login kaggle
+        uses: osbm/kaggle-login@main
+        with:
+          KAGGLE_USERNAME: ${{secrets.KaggleUsername}}
+          KAGGLE_KEY: ${{secrets.KaggleKey}}
+
+      - name: verify kaggle login
         run: |
-          pip install kaggle
-          kaggle --version
+        kaggle --version
 
       - name: download data
         run: python src/data/get_data.py
-        env:
-          KAGGLE_USERNAME: ${{secrets.KaggleUsername}}
-          KAGGLE_KEY: ${{secrets.KaggleKey}}
