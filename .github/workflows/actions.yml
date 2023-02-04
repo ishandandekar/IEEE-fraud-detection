@@ -14,6 +14,10 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: install requirements
+        run: |
+          make install
+
       - name: login kaggle
         uses: osbm/kaggle-login@main
         with:
@@ -24,5 +28,8 @@ jobs:
         run: |
           kaggle --version
 
+      - name: format code
+        run: make format
+
       - name: download data
-        run: python src/data/get_data.py
+        run: make data
