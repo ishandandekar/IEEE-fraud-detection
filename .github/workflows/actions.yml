@@ -1,0 +1,26 @@
+name: test action
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: install kaggle
+        run: |
+          pip install kaggle
+          kaggle --version
+
+      - name: download data
+        run: kaggle competitions download -c ieee-fraud-detection
+        env:
+          KAGGLE_USERNAME: ${{secrets.KaggleUsername}}
+          KAGGLE_KEY: ${{secrets.KaggleKey}}
