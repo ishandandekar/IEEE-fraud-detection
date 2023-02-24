@@ -4,7 +4,7 @@ import os
 import yaml
 from yaml.loader import SafeLoader
 
-with open('config.yml') as stream:
+with open("config.yml") as stream:
     config = yaml.load(stream, Loader=yaml.loader.SafeLoader)
 
 PACKAGE_ROOT_DIR = Path(os.getcwd()).parent.parent

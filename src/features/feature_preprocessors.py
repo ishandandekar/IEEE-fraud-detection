@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd  # type: ignore
 from sklearn.base import BaseEstimator, TransformerMixin  # type: ignore
 
+
 class AggregateCategorical(BaseEstimator, TransformerMixin):
     """
     Reduces the cardinality of categorical features
